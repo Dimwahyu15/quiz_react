@@ -43,7 +43,7 @@ function App() {
   return ( questions.length > 0 ? (
     <div className="App">
       {CurrentIndex >= questions.length ? (
-        <h1>Game end {score}</h1>):(
+        <h1>Game end {score} reload to play again</h1>):(
           <Quiz 
           handleAnswer={handleAnswer} 
           handleNextQuestion={handleNextQuestion}
