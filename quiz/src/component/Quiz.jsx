@@ -13,8 +13,10 @@ const Quiz = ({handleAnswer, handleNextQuestion, showAnswers, data:{question, co
         <h1 dangerouslySetInnerHTML={{__html:question}}/> 
         <ul>
             {answers.map((answer,idx) => {
-
-              return(<li><button 
+              const specialClassName = showAnswers ?(
+                answer === correct_answer ? "green-btn" : "red-btn"
+              ): "";
+              return(<li><button className={`btn-standard ${specialClassName}`}
                 onClick={()=> handleAnswer(answer)}
                 dangerouslySetInnerHTML={{__html:answer}} /></li>)
 
@@ -22,7 +24,7 @@ const Quiz = ({handleAnswer, handleNextQuestion, showAnswers, data:{question, co
         </ul>
       </div> 
       {showAnswers && (
-        <button onClick={handleNextQuestion} > Next Question</button>
+        <button onClick={handleNextQuestion} className='next-question' > Next Question</button>
       )}
       {/* Multipe Choice */}
     </div>
